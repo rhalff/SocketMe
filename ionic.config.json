@@ -1,0 +1,8 @@
+{
+  "name": "SocketMe",
+  "app_id": "f62d8c1a",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
