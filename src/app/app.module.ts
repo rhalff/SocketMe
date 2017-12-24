@@ -11,6 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Logger } from "angular2-logger/core";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -32,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage
   ],
   providers: [
+    Logger,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
