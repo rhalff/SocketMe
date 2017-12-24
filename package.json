@@ -26,8 +26,14 @@
     "@ionic/pro": "1.0.16",
     "@ionic/storage": "2.1.3",
     "cordova-android": "7.0.0",
+    "cordova-plugin-battery-status": "^1.2.5",
     "cordova-plugin-device": "^1.1.4",
+    "cordova-plugin-device-motion": "^1.2.5",
+    "cordova-plugin-device-orientation": "^1.0.7",
+    "cordova-plugin-geolocation": "^3.0.0",
     "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-network-information": "^1.3.4",
+    "cordova-plugin-signal-strength": "^1.0.3",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-whitelist": "^1.3.1",
     "ionic-angular": "3.9.2",
@@ -48,7 +54,13 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {}
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-battery-status": {},
+      "cordova-plugin-device-motion": {},
+      "cordova-plugin-device-orientation": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-network-information": {},
+      "org.apache.cordova.signal-strength": {}
     },
     "platforms": [
       "android"
