@@ -117,6 +117,30 @@
     localforage "~1.4.2"
     localforage-cordovasqlitedriver "~1.5.0"
 
+"@types/cordova-plugin-battery-status@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@types/cordova-plugin-battery-status/-/cordova-plugin-battery-status-0.0.4.tgz#9c3a81a658b5de5f9fd1534a501fc21f0aefc99d"
+
+"@types/cordova-plugin-device-motion@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@types/cordova-plugin-device-motion/-/cordova-plugin-device-motion-0.0.3.tgz#2519e35cd0d6eb1452fb7eafd8e3e7d64a5d1d68"
+
+"@types/cordova-plugin-device-orientation@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@types/cordova-plugin-device-orientation/-/cordova-plugin-device-orientation-0.0.3.tgz#ff4396c999f27330ad1c50fc3e72e84c54dd898f"
+
+"@types/cordova-plugin-device@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@types/cordova-plugin-device/-/cordova-plugin-device-0.0.4.tgz#5eee8f8c078f189fbef6b030bd38fa86f124698d"
+
+"@types/cordova-plugin-network-information@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@types/cordova-plugin-network-information/-/cordova-plugin-network-information-0.0.3.tgz#fa2c9c6ae7e4c57f13b77f695da4edbb3afaa016"
+
+"@types/jasmine@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.2.tgz#6ae4d8740c0da5d5a627df725b4eed71b8e36668"
+
 "@types/localforage@0.0.30":
   version "0.0.30"
   resolved "https://registry.yarnpkg.com/@types/localforage/-/localforage-0.0.30.tgz#3d60a6bf6dda38e3f8a469611598379f1f649509"
@@ -242,6 +266,10 @@ amdefine@>=0.0.4:
 android-versions@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/android-versions/-/android-versions-1.2.1.tgz#3f50baf693e73a512c3c5403542291cead900063"
+
+angular2-logger@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/angular2-logger/-/angular2-logger-0.6.0.tgz#5019c4792427d7f1f442c947001657e10b2e3f63"
 
 angular2-template-loader@^0.6.2:
   version "0.6.2"
@@ -1149,13 +1177,13 @@ cordova-plugin-battery-status@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/cordova-plugin-battery-status/-/cordova-plugin-battery-status-1.2.5.tgz#6c648f9b3cf5ab034b95c5cffe584f5576d42ca9"
 
-cordova-plugin-device-motion@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-device-motion/-/cordova-plugin-device-motion-1.2.5.tgz#7b58edd9d550df0a6fb9aefab55b96d5490b1a56"
+cordova-plugin-device-motion@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-device-motion/-/cordova-plugin-device-motion-2.0.0.tgz#7e434b59e8ce02c7bd7940902bd0fca716905cfd"
 
-cordova-plugin-device-orientation@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-device-orientation/-/cordova-plugin-device-orientation-1.0.7.tgz#ac8c798be8edb0e55b61fec68eda9093e486bf0b"
+cordova-plugin-device-orientation@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-device-orientation/-/cordova-plugin-device-orientation-2.0.0.tgz#0f1b81cef4b93ecddcc4e3069d9539c927d8e2f5"
 
 cordova-plugin-device@^1.1.4:
   version "1.1.7"
@@ -1169,9 +1197,9 @@ cordova-plugin-ionic-webview@^1.1.16:
   version "1.1.16"
   resolved "https://registry.yarnpkg.com/cordova-plugin-ionic-webview/-/cordova-plugin-ionic-webview-1.1.16.tgz#92d5f2e4a5a829f91b487b1761848765a31c9f1e"
 
-cordova-plugin-network-information@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-network-information/-/cordova-plugin-network-information-1.3.4.tgz#28f426cc2659174dc622a07180f9ba0d855f7383"
+cordova-plugin-network-information@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-network-information/-/cordova-plugin-network-information-2.0.0.tgz#6de624600dfbcd3c42374d89c4e4e12f8097b057"
 
 cordova-plugin-signal-strength@^1.0.3:
   version "1.0.3"

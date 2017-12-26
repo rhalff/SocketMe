@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { Config } from './services/config.service';
+
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -34,6 +36,7 @@ import { Logger } from "angular2-logger/core";
     TabsPage
   ],
   providers: [
+    Config,
     Logger,
     StatusBar,
     SplashScreen,
