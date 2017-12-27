@@ -1,3 +1,8 @@
+interface Action {
+  type: string;
+  payload?: any;
+}
+
 // fix: @types/cordova-plugin-device-motion
 interface Accelerometer {
   watchAcceleration(
