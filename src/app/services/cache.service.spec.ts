@@ -15,7 +15,7 @@ describe('Cache Service', () => {
   });
 
   it('can get cache', () => {
-    expect(Object.keys(cacheService.get('test')).length).toBe(0);
+    expect(Object.keys(cacheService.get()).length).toBe(0);
   });
 
   it('initial is not dirty', () => {

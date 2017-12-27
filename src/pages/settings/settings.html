@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of settingsList">
+      <ion-label>{{ item.text }}</ion-label>
+      <ion-toggle
+        value="item.checked"
+        checked="item.checked"
+        ng-change="toggleIt(item)"
+      >
+      <i class="[item.className]"></i>
+      <span ng-repeat="(key, value) in item.service.status">
+           <strong>{{key}}:</strong> {{value}}
+        </span>
+    </ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

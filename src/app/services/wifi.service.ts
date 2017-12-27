@@ -13,7 +13,7 @@ export class WifiService implements ISocketMeService {
   public name: string = 'Wifi';
   public title: string = 'Wifi';
   public isActive: boolean = false;
-  public status: WifiStatus;
+  public status: WifiStatus[];
   public options = {frequency: 1000};
 
   private _cache: Cache;
@@ -50,25 +50,24 @@ export class WifiService implements ISocketMeService {
       this.isActive = false;
       this._cache.clear();
       if (this._watchID) {
-        this._wifi.clearWatch();
+        this._wifi.clearWatch(this._watchID);
       }
     }
   }
 
-  private _error (error) {
+  private _error (error: Error) {
     this._log.error(error)
   }
 
   // BSSID: Address of the access point
   // SSID: Network name
   // level: RSSI
-  private _success (result) {
-    // fix this is an array
-    this.status = {
-      BSSID: result.BSSID,
-      SSID: result.SSID,
-      level: result.level
-    };
+  private _success (result: AccessPoint[]) {
+    this.status = result.map((network) => ({
+      BSSID: network.BSSID,
+      SSID: network.SSID,
+      level: network.level
+    }));
 
     this._cache.add(this.status)
   }

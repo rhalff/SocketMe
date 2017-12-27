@@ -31,28 +31,6 @@ export class BatteryService implements ISocketMeService {
     }
   }
 
-  private _onStatus() {
-    this.status = {
-      timeStamp: this._battery.timeStamp || Date.now(),
-      level: this._battery.level,
-      isPlugged: this._battery.hasOwnProperty('isPlugged') ? this._battery.isPlugged : this._isPlugged,
-      charging: this._battery.hasOwnProperty('charging') ? this._battery.charging : this._charging,
-      dischargingTime: this._battery.dischargingTime || this._dischargingTime
-    };
-
-    // this makes no sense ofcourse..
-    this._isPlugged = this.status.isPlugged;
-    this._dischargingTime = this.status.dischargingTime;
-    this._charging = this.status.charging;
-    this._cache.add(this.status);
-  }
-
-  private _removeListeners() {
-    this._battery.removeEventListener('chargingchange', this._onStatus);
-    this._battery.removeEventListener('levelchange', this._onStatus);
-    this._battery.removeEventListener('dischargingtimechange', this._onStatus);
-  }
-
   public start() {
     if (!this.isActive) {
       this.isActive = true;
@@ -79,6 +57,28 @@ export class BatteryService implements ISocketMeService {
         this._removeListeners();
       }
     }
+  }
+
+  private _onStatus() {
+    this.status = {
+      timeStamp: this._battery.timeStamp || Date.now(),
+      level: this._battery.level,
+      isPlugged: this._battery.hasOwnProperty('isPlugged') ? this._battery.isPlugged : this._isPlugged,
+      charging: this._battery.hasOwnProperty('charging') ? this._battery.charging : this._charging,
+      dischargingTime: this._battery.dischargingTime || this._dischargingTime
+    };
+
+    // this makes no sense ofcourse..
+    this._isPlugged = this.status.isPlugged;
+    this._dischargingTime = this.status.dischargingTime;
+    this._charging = this.status.charging;
+    this._cache.add(this.status);
+  }
+
+  private _removeListeners() {
+    this._battery.removeEventListener('chargingchange', this._onStatus);
+    this._battery.removeEventListener('levelchange', this._onStatus);
+    this._battery.removeEventListener('dischargingtimechange', this._onStatus);
   }
 }
 

@@ -1,7 +1,5 @@
 export class Config {
-  config = {
-    socket: {
-      frequency: 2000
-    }
+  socket: {
+    frequency: 2000
   }
 }

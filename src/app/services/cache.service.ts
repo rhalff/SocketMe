@@ -22,7 +22,9 @@ export class CacheService {
         this._dirty = true;
       }
       return obj;
-    }, {})
+    }, {
+      ts: Date.now()
+    })
   }
 
   isDirty() {
