@@ -8,9 +8,10 @@ import { StoreModule } from '@ngrx/store';
 
 import { Config } from './services/config.service';
 
-import { DashboardPage } from '../pages/dashboard/dashboard';
-import { SettingsPage } from '../pages/settings/settings';
-import { CachePage } from '../pages/cache/cache';
+import { DashboardPageModule } from '../pages/dashboard/dashboard.module';
+import { SettingsPageModule } from '../pages/settings/settings.module';
+import { CachePageModule } from '../pages/cache/cache.module';
+import { TabsPageModule } from '../pages/tabs/tabs.module';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,14 +22,14 @@ import { sockets } from './reducers/sockets.reducer';
 
 @NgModule({
   declarations: [
-    MyApp,
-    DashboardPage,
-    SettingsPage,
-    CachePage,
-    TabsPage
+    MyApp
   ],
   imports: [
     BrowserModule,
+    DashboardPageModule,
+    SettingsPageModule,
+    CachePageModule,
+    TabsPageModule,
     IonicModule.forRoot(MyApp),
     StoreModule.forRoot({
       sockets
@@ -40,10 +41,12 @@ import { sockets } from './reducers/sockets.reducer';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    TabsPage
+    /*,
     DashboardPage,
     SettingsPage,
     CachePage,
-    TabsPage
+    */
   ],
   providers: [
     Config,

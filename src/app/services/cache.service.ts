@@ -1,6 +1,8 @@
+import { Injectable } from '@angular/core';
 import {Cache} from './lib/Cache'
 import {Logger} from 'angular2-logger/core'
 
+@Injectable()
 export class CacheService {
   private _dirty: boolean = false;
   private _caches = {};

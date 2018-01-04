@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service';
@@ -9,6 +10,7 @@ export type SignalStatus = {
   dBm: number;
 };
 
+@Injectable()
 export class SignalService implements ISocketMeService {
   public name: string = 'Signal';
   public title: string = 'Signal';

@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service';
@@ -8,6 +9,7 @@ export type LocationStatus = {
   longitude: number;
 }
 
+@Injectable()
 export class LocationService implements ISocketMeService {
   public name: string = 'Location';
   public title: string = 'Location';

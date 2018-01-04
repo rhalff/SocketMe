@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { ISocketMeService} from './ISocketMeService';
 import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service'
@@ -10,6 +11,7 @@ export type BatteryStatus = {
   dischargingTime: number;
 }
 
+@Injectable()
 export class BatteryService implements ISocketMeService {
   public name: string = 'Battery';
   public title: string = 'Battery';

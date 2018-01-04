@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service';
@@ -10,6 +11,7 @@ export type OrientationStatus = {
   gamma: number;
 };
 
+@Injectable()
 export class OrientationService implements ISocketMeService {
   public name: string = 'Orientation';
   public title: string = 'Orientation';

@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service';
@@ -9,7 +10,7 @@ export type CompassStatus = {
   accuracy: number;
   timeStamp: number;
 }
-
+@Injectable()
 export class CompassService implements ISocketMeService {
   public name: string = 'Compass';
   public title: string = 'Compass';

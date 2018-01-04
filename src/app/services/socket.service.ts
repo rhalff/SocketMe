@@ -1,5 +1,5 @@
-/* global io */
 import io from 'socket.io-client';
+import { Injectable } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Config } from './config.service';
 import { CacheService } from './cache.service';
@@ -16,6 +16,7 @@ import ConnectOpts = SocketIOClient.ConnectOpts;
 
 const url = 'fixme';
 
+@Injectable()
 export class SocketService {
   private _intervalID;
   private _sockets = {};
