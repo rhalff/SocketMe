@@ -3,12 +3,13 @@ interface Action {
   payload?: any;
 }
 
-// fix: @types/cordova-plugin-device-motion
-interface Accelerometer {
-  watchAcceleration(
-    accelerometerSuccess: (acceleration: Acceleration) => void,
-    accelerometerError: (error: Error) => void,
-    accelerometerOptions?: AccelerometerOptions): WatchHandle;
+interface Compass {
+  clearWatch: (watchID: number) => void,
+  watchHeading: (
+    successHandler: (result: any) => void,
+    errorHandler: (error: Error) => void,
+    options?: object
+  ) => void,
 }
 
 // NavigatorBatteryStatus *wontfix*
@@ -26,6 +27,7 @@ interface Navigator extends
   NavigatorConcurrentHardware,
   NavigatorUserMedia,
   NavigatorBatteryStatus {
+  compass: Compass;
 }
 
 interface NavigatorBatteryStatus {
