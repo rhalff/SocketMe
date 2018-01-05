@@ -48,7 +48,6 @@ export class DashboardPage {
   }
 
   toggleIt(socket) {
-    debugger;
     if (socket.connect) {
       this._log.info('Connecting to socket')
       const opts = socket.path ? {path: socket.path} : {}
