@@ -1,4 +1,4 @@
-export const SOCKETS = Object.freeze({
-  STATUS: 'SOCKETS/STATUS',
-  SEND: 'SOCKETS/SEND'
-});
+export enum SOCKETS {
+  STATUS = 'SOCKETS/STATUS',
+  SEND ='SOCKETS/SEND'
+};

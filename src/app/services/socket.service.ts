@@ -8,8 +8,8 @@ import { Store } from '@ngrx/store';
 import { AppStore } from '../app.store';
 
 import {
-  socketSend,
-  socketStatus
+  SocketSend,
+  SocketStatus
 } from '../actions/sockets';
 
 import ConnectOpts = SocketIOClient.ConnectOpts;
@@ -20,6 +20,7 @@ const url = 'fixme';
 export class SocketService {
   private _intervalID;
   private _sockets = {};
+  public url;
 
   constructor(
     private _log: Logger,
@@ -49,7 +50,7 @@ export class SocketService {
 
     this._log.info('Connecting to %s', url);
 
-    socket = this._sockets[url] = io(options);
+    socket = this._sockets[url] = io(url, options);
 
     socket.on('connect', this._onConnect);
     socket.on('disconnect', this._onDisconnect);
@@ -60,6 +61,8 @@ export class SocketService {
     socket.on('error', this._onError);
 
     this.startPolling(this._config.socket.frequency);
+
+    this.url = url;
   }
 
   startPolling(frequency: number) {
@@ -106,7 +109,7 @@ export class SocketService {
           this._sockets[url].emit('input', payload);
         });
 
-        this._store.dispatch(socketSend(payload));
+        this._store.dispatch(new SocketSend(payload));
 
         this._cacheService.flush();
       } else {
@@ -115,51 +118,52 @@ export class SocketService {
     }
   }
 
-  private _onConnect() {
+  private _onConnect(s, a) {
+    console.log(s, a)
     this._store.dispatch(
-      socketStatus({ status: 'connected', url: url })
+      new SocketStatus({ status: 'connected', url: url })
     );
     this._log.info('Connected to %s', url);
   }
 
   private _onDisconnect() {
     this._store.dispatch(
-      socketStatus({ status: 'disconnected', url: url })
+      new SocketStatus({ status: 'disconnected', url: url })
     );
     this._log.info('Disconnected from %s', url);
   }
 
   private _onReconnect() {
     this._store.dispatch(
-      socketStatus({ status: 'reconnect', url: url })
+      new SocketStatus({ status: 'reconnect', url: url })
     );
     this._log.info('Reconnected to %s', url);
   }
 
   private _onReconnecting(/* attemptNo */) {
     this._store.dispatch(
-      socketStatus({ status: 'reconnecting', url: url })
+      new SocketStatus({ status: 'reconnecting', url: url })
     );
     this._log.info('Reconnecting to %s', url);
   }
 
   private _onError(error) {
     this._store.dispatch(
-      socketStatus({ status: 'error', url })
+      new SocketStatus({ status: 'error', url })
     );
     this._log.info('Socket error for %s', url, error);
   }
 
   private _onReconnectError(/* err */) {
     this._store.dispatch(
-      socketStatus({ status: 'reconnect_error', url: url })
+      new SocketStatus({ status: 'reconnect_error', url: url })
     );
     this._log.info('Reconnect error to %s', url);
   }
 
   private _onReconnectFailed(/* reconnectionAttempts */) {
     this._store.dispatch(
-      socketStatus({ status: 'reconnect_failed', url: url })
+      new SocketStatus({ status: 'reconnect_failed', url: url })
     );
 
     this._log.info('Reconnect error to %s', url);

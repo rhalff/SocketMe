@@ -1,23 +1,35 @@
 <ion-header>
+
   <ion-navbar>
-    <ion-title>Settings</ion-title>
+    <ion-title>{{ pageTitle }}</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let item of settingsList">
-      <ion-label>{{ item.text }}</ion-label>
-      <ion-toggle
-        value="item.checked"
-        checked="item.checked"
-        ng-change="toggleIt(item)"
-      >
-      <i class="[item.className]"></i>
-      <span ng-repeat="(key, value) in item.service.status">
+<ion-content>
+
+  <form [formGroup]="form" *ngIf="settingsReady">
+    <ion-list *ngIf="page == 'main'">
+      <ion-item *ngFor="let item of settingsList">
+        <ion-label>{{ item.text }}</ion-label>
+        <ion-toggle
+          value="item.checked"
+          checked="item.checked"
+          ng-change="toggleIt(item)"
+        >
+        </ion-toggle>
+        <!--
+          not sure what this displayed?
+          Seems like the current values of status.
+          But why inside the toggle?
+          Anyway it is not rendering
+        -->
+        <i class="[item.className]"></i>
+        <span ng-repeat="(key, value) in item.service.status">
            <strong>{{key}}:</strong> {{value}}
         </span>
-    </ion-toggle>
-    </ion-item>
-  </ion-list>
+      </ion-item>
+    </ion-list>
+  </form>
+
 </ion-content>

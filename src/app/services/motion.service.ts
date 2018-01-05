@@ -6,7 +6,7 @@ import {ISocketMeService} from './ISocketMeService';
 
 const accelerometer = navigator.accelerometer;
 
-export type MotionStatus = {
+export interface MotionStatus {
   x: number;
   y: number;
   z: number;

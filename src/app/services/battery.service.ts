@@ -3,7 +3,7 @@ import { ISocketMeService} from './ISocketMeService';
 import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service'
 
-export type BatteryStatus = {
+export interface BatteryStatus {
   timeStamp: number;
   level: number;
   isPlugged: boolean;

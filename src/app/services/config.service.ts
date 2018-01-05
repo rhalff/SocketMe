@@ -1,5 +1,5 @@
 export class Config {
-  socket: {
+  public socket = {
     frequency: 2000
   }
 }

@@ -6,21 +6,24 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-toggle
-      ng-repeat="socket in connections"
-      ng-model="socket.connect"
-      ng-checked="socket.connect"
-      ng-change="toggleIt(socket)"
-    >
-      {{ socket.text }} <span ng-if="socket.connect" ng-class="socket.status">{{socket.status}}</span>
-    </ion-toggle>
-    <div class="item range range-positive">
-      Send Interval
-      <i class="icon ion-ios-bolt-outline"></i>
-      1 ms
-      <input type="range" ng-model="config.frequency" name="volume" min="1" max="5000" value="2000" />
-      5 sec
-      <i class="icon ion-ios-bolt"></i>
-    </div>
+    <ion-item *ngFor="let socket of connections">
+      <ion-label>
+        {{ socket.text }} <span *ngIf="socket.connect" [class]="socket.status">{{socket.status}}</span>
+      </ion-label>
+      <ion-toggle
+        [(ngModel)]="socket.connect"
+        checked="socket.connect"
+        (ionChange)="toggleIt(socket)"
+      >
+      </ion-toggle>
+    </ion-item>
   </ion-list>
+  <div *ngIf="config" class="item range range-positive">
+    Send Interval
+    <i class="icon ion-ios-bolt-outline"></i>
+    1 ms
+    <input type="range" [(ngModel)]="config.frequency" name="volume" min="1" max="5000" value="2000" />
+    5 sec
+    <i class="icon ion-ios-bolt"></i>
+  </div>
 </ion-content>

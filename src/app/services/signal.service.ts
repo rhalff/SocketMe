@@ -6,7 +6,7 @@ import {ISocketMeService} from './ISocketMeService';
 
 const dbm = window.SignalStrength ? window.SignalStrength.dbm : null;
 
-export type SignalStatus = {
+export interface SignalStatus {
   dBm: number;
 };
 

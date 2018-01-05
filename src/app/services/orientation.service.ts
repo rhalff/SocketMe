@@ -4,7 +4,7 @@ import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service';
 import {ISocketMeService} from './ISocketMeService';
 
-export type OrientationStatus = {
+export interface OrientationStatus {
   absolute: boolean;
   alpha: number;
   beta: number;

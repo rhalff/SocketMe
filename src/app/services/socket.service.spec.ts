@@ -7,8 +7,7 @@ import { Config } from './config.service';
 import { CacheService } from './cache.service';
 import { sockets } from '../reducers/sockets.reducer'
 import {
-  socketSend,
-  socketStatus
+  SocketSend
 } from '../actions/sockets';
 
 import { AppStore } from '../app.store';
@@ -42,7 +41,7 @@ describe('SocketService', () => {
   }));
 
   it('dispatches action', () => {
-    const action = socketSend({ whatever: ''});
+    const action = new SocketSend({ whatever: ''});
 
     expect(store.dispatch).toHaveBeenCalledWith(action);
 

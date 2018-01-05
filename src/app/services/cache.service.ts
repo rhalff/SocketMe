@@ -15,7 +15,7 @@ export class CacheService {
     return this._caches[name];
   }
 
-  peek() {
+  peek() : {[key: string]: any} {
     this._log.debug('CACHE:peek');
 
     return Object.keys(this._caches).reduce((obj, key) => {
@@ -25,7 +25,7 @@ export class CacheService {
       }
       return obj;
     }, {
-      ts: Date.now()
+      // ts: Date.now()
     })
   }
 
