@@ -66,8 +66,6 @@ export class SocketService {
       this._log.info('Disconnected from %s', url);
     }
 
-    console.log(Object.keys(this._sockets).length);
-
     if (!Object.keys(this._sockets).length) {
       clearInterval(this._intervalID);
       this._log.info('Stop polling');
