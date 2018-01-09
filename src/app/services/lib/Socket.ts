@@ -1,8 +1,6 @@
 import io from 'socket.io-client';
 import { Injectable } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
-// import { CacheService } from '../cache.service';
-// import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { AppStore } from '../../app.store';
 

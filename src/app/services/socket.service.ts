@@ -3,13 +3,11 @@ import { Logger, Level } from 'angular2-logger/core';
 import { Config } from './config.service';
 import { CacheService } from './cache.service';
 import { Socket } from './lib/Socket';
-// import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { AppStore } from '../app.store';
 
 import {
   SocketSend
-//  SocketStatus
 } from '../actions/sockets';
 
 import ConnectOpts = SocketIOClient.ConnectOpts;
@@ -87,7 +85,6 @@ export class SocketService {
         this._log.debug('SocketMe: Cache is Dirty, sending/broadcast');
         this._log.debug('SocketMe: payload', JSON.stringify(payload));
 
-        // hier wordt het al verzonden..
         sockets.forEach((url) => {
           this._sockets[url].send(payload);
         });

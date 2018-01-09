@@ -6,7 +6,6 @@ export function sockets (
   {type, payload}
 ) : SocketPayloads {
   switch (type) {
-    // makes no sense this.
     case SOCKETS.SEND:
       return {
         type,
