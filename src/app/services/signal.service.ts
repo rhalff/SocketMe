@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Logger } from 'angular2-logger/core';
 import { Cache } from './lib/Cache';
 import { CacheService } from './cache.service';
 import {ISocketMeService} from './ISocketMeService';
@@ -19,14 +18,11 @@ export class SignalService implements ISocketMeService {
   public frequency = 2000;
 
   private _cache: Cache;
-  private _log;
   private _stopInterval;
 
   constructor(
-    log: Logger,
     cache: CacheService
   )  {
-    this._log = log;
     this._cache = cache.create('signal');
   }
 

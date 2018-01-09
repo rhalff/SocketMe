@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Logger, Level } from 'angular2-logger/core';
+import { Logger } from 'angular2-logger/core';
 import { Config } from '../../app/services/config.service';
 import { SocketService } from '../../app/services/socket.service';
 
@@ -22,6 +22,12 @@ export class DashboardPage {
       text: 'RobbertHalff (dev)',
       url: 'http://localhost:3000',
      // path: '/ws',
+      connect: false
+    },
+    {
+      text: '192.168.1.124 (dev)',
+      url: 'http://192.168.1.124:3000',
+      // path: '/ws',
       connect: false
     }
   ];

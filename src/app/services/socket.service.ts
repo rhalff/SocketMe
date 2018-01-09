@@ -40,7 +40,7 @@ export class SocketService {
 
     this._log.info('Connecting to %s', url);
 
-    socket = new Socket(this._log, this._config, this._store);
+    socket = new Socket(this._log, this._store);
     socket.connect(url, options);
 
     this._sockets[url] = socket;

@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { SOCKETS } from '../constants/sockets';
-import { SocketMeService } from '../services';
 
 export interface SocketStatusPayload {
   status: 'connected' | 'disconnected' | 'reconnect' | 'reconnecting' |

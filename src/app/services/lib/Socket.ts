@@ -1,7 +1,6 @@
 import io from 'socket.io-client';
 import { Injectable } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
-import { Config } from '../config.service';
 // import { CacheService } from '../cache.service';
 // import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
@@ -21,7 +20,6 @@ export class Socket {
 
   constructor(
     private _log: Logger,
-    private _config: Config,
     private _store: Store<AppStore>
   ) {
 

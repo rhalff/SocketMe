@@ -8,7 +8,6 @@ import { ServiceToggle } from '../../app/actions/services';
 import { AppStore } from '../../app/app.store';
 
 import {
-  ISocketMeService,
   SettingsService,
   BatteryService,
   CompassService,
