@@ -1,8 +1,9 @@
 {
   "name": "SocketMe",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "version": "2.0.0",
+  "author": "Rob Halff <rob.halff@gmail.com>",
+  "description": "Send your sensor information out there.",
+  "homepage": "http://robberthalff.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -85,7 +86,6 @@
     "ts-node": "^4.1.0",
     "typescript": "2.6.2"
   },
-  "description": "An Ionic project",
   "cordova": {
     "plugins": {
       "ionic-plugin-keyboard": {},
