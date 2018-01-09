@@ -15,7 +15,7 @@
         <ion-toggle
           value="item.checked"
           checked="item.checked"
-          ng-change="toggleIt(item)"
+          (ionChange)="toggleIt({activate: $event.checked, name: item.text})"
         >
         </ion-toggle>
         <!--

@@ -20,8 +20,8 @@ export class DashboardPage {
     },
     {
       text: 'RobbertHalff (dev)',
-      url: 'http://192.168.1.114:3030',
-      path: '/ws',
+      url: 'http://localhost:3000',
+     // path: '/ws',
       connect: false
     }
   ];
@@ -33,7 +33,6 @@ export class DashboardPage {
     private _socket: SocketService,
     config: Config
   ) {
-    this._log.level = Level.LOG
     this.config = config.socket
   }
 

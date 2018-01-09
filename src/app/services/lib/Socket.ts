@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import { AppStore } from '../../app.store';
 
 import {
-  // SocketSend,
+  SocketData,
   SocketStatus
 } from '../../actions/sockets';
 
@@ -26,6 +26,7 @@ export class Socket {
   ) {
 
     this._onConnect = this._onConnect.bind(this);
+    this._onData = this._onData.bind(this);
     this._onDisconnect = this._onDisconnect.bind(this);
     this._onError = this._onError.bind(this);
     this._onReconnect = this._onReconnect.bind(this);
@@ -40,6 +41,7 @@ export class Socket {
     this.socket = io(url, options);
     this.socket.on('connect', this._onConnect);
     this.socket.on('disconnect', this._onDisconnect);
+    this.socket.on('event', this._onData);
     this.socket.on('reconnect', this._onReconnect);
     this.socket.on('reconnecting', this._onReconnecting);
     this.socket.on('reconnect_error', this._onReconnectError);
@@ -58,7 +60,7 @@ export class Socket {
   }
 
   send(payload) {
-    this.socket.emit('input', payload);
+    this.socket.emit('event', payload);
   }
 
   private _onConnect() {
@@ -73,6 +75,13 @@ export class Socket {
       new SocketStatus({ status: 'disconnected', url: this.url })
     );
     this._log.info('Disconnected from %s', this.url);
+  }
+
+  private _onData(data) {
+    this._store.dispatch(
+      new SocketData({ data, url: this.url })
+    );
+    this._log.info('Data from %s', this.url, data);
   }
 
   private _onReconnect() {

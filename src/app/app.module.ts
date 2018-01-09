@@ -22,11 +22,16 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Logger, Options } from "angular2-logger/core";
+import { Logger } from "angular2-logger/core";
 import { sockets } from './reducers/sockets.reducer';
+import { services } from './reducers/services.reducer';
 
 import { provideSettings } from './provideSettings';
 import { createTranslateLoader } from './createTranslateLoader';
+
+import { EffectsModule } from '@ngrx/effects';
+import { SocketMeServices } from './services/SocketMe.services';
+import { SocketMeServicesEffect } from './effects/services.effect';
 
 @NgModule({
   declarations: [
@@ -39,9 +44,11 @@ import { createTranslateLoader } from './createTranslateLoader';
     SettingsPageModule,
     CachePageModule,
     TabsPageModule,
+    EffectsModule.forRoot([SocketMeServicesEffect]),
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
     StoreModule.forRoot({
+      services,
       sockets
     }),
     TranslateModule.forRoot({
@@ -70,6 +77,7 @@ import { createTranslateLoader } from './createTranslateLoader';
     Logger,
     StatusBar,
     SplashScreen,
+    SocketMeServices,
     {provide: SettingsService, useFactory: provideSettings, deps: [Storage]},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

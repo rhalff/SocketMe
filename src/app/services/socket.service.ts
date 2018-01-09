@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Logger } from 'angular2-logger/core';
+import { Logger, Level } from 'angular2-logger/core';
 import { Config } from './config.service';
 import { CacheService } from './cache.service';
 import { Socket } from './lib/Socket';
@@ -25,6 +25,7 @@ export class SocketService {
     private _cacheService: CacheService,
     private _store: Store<AppStore>
   ) {
+    this._log.level = Level.DEBUG
     this._pollData = this._pollData.bind(this);
   }
 
@@ -43,7 +44,7 @@ export class SocketService {
     socket.connect(url, options);
 
     this._sockets[url] = socket;
- debugger;
+
     this.startPolling(this._config.socket.frequency);
   }
 
@@ -86,6 +87,7 @@ export class SocketService {
         this._log.debug('SocketMe: Cache is Dirty, sending/broadcast');
         this._log.debug('SocketMe: payload', JSON.stringify(payload));
 
+        // hier wordt het al verzonden..
         sockets.forEach((url) => {
           this._sockets[url].send(payload);
         });
@@ -96,6 +98,8 @@ export class SocketService {
       } else {
         this._log.debug('SocketMe: Cache not dirty skipping');
       }
+    } else {
+      this._log.debug('SocketMe: _pollData no sockets to send to');
     }
   }
 }

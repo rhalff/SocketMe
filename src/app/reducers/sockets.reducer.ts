@@ -1,19 +1,20 @@
-import { SocketActions} from '../actions/sockets';
+import { SocketPayloads } from '../actions/sockets';
 import { SOCKETS } from '../constants/sockets';
 
 export function sockets (
   state: any = [],
   {type, payload}
-) : SocketActions {
+) : SocketPayloads {
   switch (type) {
+    // makes no sense this.
     case SOCKETS.SEND:
       return {
-        ...state,
+        type,
         send: payload
       };
     case SOCKETS.STATUS:
       return {
-        ...state,
+        type,
         status: payload
       };
     default:

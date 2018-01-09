@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { createSettingsList } from './lib/createSettingsList';
+import { ServiceToggle } from '../../app/actions/services';
+import { AppStore } from '../../app/app.store';
 
 import {
   ISocketMeService,
@@ -70,7 +73,8 @@ export class SettingsPage {
     orientation: OrientationService,
     signal: SignalService,
     wifi: WifiService,
-    location: LocationService
+    location: LocationService,
+    private _store: Store<AppStore>
   ) {
     this.services = {
       battery,
@@ -82,6 +86,10 @@ export class SettingsPage {
       location
     };
     this.settingsList = createSettingsList(this.services)
+  }
+
+  toggleIt(payload) {
+    this._store.dispatch(new ServiceToggle(payload));
   }
 
   _buildForm() {

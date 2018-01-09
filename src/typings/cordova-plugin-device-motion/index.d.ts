@@ -1,4 +1,4 @@
-/// <reference path="../../../node_modules/@types/cordova-plugin-device-motion/index.d.ts"/>
+/// <reference path="../../../node_modules/cordova-plugin-device-motion/types/index.d.ts"/>
 
 interface Accelerometer {
   watchAcceleration(

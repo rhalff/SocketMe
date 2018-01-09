@@ -1,0 +1,4 @@
+export const SERVICES = {
+  TOGGLE: 'SERVICES/TOGGLE',
+  STATUS: 'SERVICES/STATUS'
+};
